@@ -1,0 +1,15 @@
+event payload ($event) examle
+
+<div style="margin-top: 1em">
+  <input (keyup)="onKey($event)">
+  <p>{{values}}</p>
+
+
+<br>
+
+ Getting value from reference variable <br>
+
+ <input #box (keyup)="getValue(box.value)">
+ <p>{{values}}</p>
+
+</div>

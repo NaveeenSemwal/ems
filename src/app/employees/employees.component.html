@@ -1,0 +1,43 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<!-- <div >
+
+  <ul *ngFor="let employee of employeeList;let i =index">
+    <li>
+   <a [routerLink]="['/employeelist',employee.Name]">{{employee.Name}}</a>    |  {{employee.empName}}  | {{employee.empAge}}
+    </li>
+  </ul>
+
+</div>  -->
+
+<table class="table">
+  <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Phone</th> 
+      <th>Email</th>
+      <th>Message</th>
+      <th>Action</th>
+  </tr>
+  <tr *ngFor="let employee of employeeList; let i = index">
+      <td>{{i + 1}}</td>
+      <!-- <td>{{employee.Id}}</td> -->
+      <td>{{employee.Name}}</td>
+      <td>{{employee.Phone}}</td>
+      <td>{{employee.Email}}</td>
+      <td>{{employee.Message}}</td>
+      <td>
+        <!-- <a [routerLink]="['/employeelist',employee.Phone]">Edit</a>  -->
+        <button type="button" class="btn btn-primary" (click)="editButton(employee.Id);">Edit</button>  
+        <!-- <a [routerLink]="['/employeelist',employee.Phone]">Delete</a> -->
+        <button type="button" class="btn btn-danger" (click)="deleteButton(employee.Id,employee.Name,i);">Delete</button>
+      </td>
+  </tr>
+</table>
+
+
+

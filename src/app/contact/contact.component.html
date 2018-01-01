@@ -1,0 +1,33 @@
+
+<div class="container">  
+  <form id="contact" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+    <h3>Contact Form</h3>
+    <h4>Contact us for custom quote</h4>
+    <fieldset>
+      <input placeholder="Your name" [(ngModel)]="model.Name" #username="ngModel" name="Name" id="Name" type="text" tabindex="1" required autofocus>
+      <p [hidden]="username.valid || username.pristine" class="alert alert-danger">Name is required</p> 
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" [(ngModel)]="model.Email" #useremail="ngModel" name="Email" id="Email" type="email" tabindex="2" required>
+      <p [hidden]="useremail.valid || useremail.pristine" class="alert alert-danger">Email is required</p> 
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number (optional)" [(ngModel)]="model.Phone" #userphone="ngModel" name="Phone" type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
+    </fieldset>
+        <fieldset>
+            <select class="form-group" id="country" required>
+                <option *ngFor="let country of countries" [value]="country.Id">{{country.Name}}</option>
+              </select>
+          </fieldset>
+          <fieldset>
+      <textarea placeholder="Type your message here...." [(ngModel)]="model.Message" #usermessage="ngModel" name="Message" tabindex="5" required></textarea>
+      <p [hidden]="usermessage.valid || usermessage.pristine" class="alert alert-danger">Message is required</p> 
+    </fieldset>
+    <fieldset>
+      <button name="submit" [disabled]="!contactForm.form.valid" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+
+
+<i><h2>input and output directive in angular 2</h2></i>
+
+<div style="background:yellowgreen; padding-top:2em">
+Send Value to the About-us (CHILD) component : <input type="text" #myValue (keyup)="0" >
+
+<p> Value from About-us component is  :  {{aboutUsValue}}</p>
+
+<app-aboutus [parentValue]="myValue.value" (OnchildValueChange)="aboutUsValue = $event"></app-aboutus>
+
+
+
+
+</div>

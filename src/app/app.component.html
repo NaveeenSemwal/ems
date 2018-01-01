@@ -1,0 +1,58 @@
+
+
+<!-- Step-3 of the Routing -->
+ 
+
+<div class="topnav" id="myTopnav">
+  <a routerLink="/home" routerLinkActive="active">HOME</a>
+  <a routerLink="/contact-us" routerLinkActive="active">CONTACT US</a>
+  <a routerLink="/about-us" routerLinkActive="active">ABOUT US</a>
+  <a routerLink="/register" routerLinkActive="active">CREATE USER</a>
+  <a routerLink="/employeelist" routerLinkActive="active">VIEW EMPLOYEE</a>
+  <!-- <a routerLink="/login" routerLinkActive="active">LOGIN</a> -->
+  <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">SignIn</a>
+  <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Click here to SignIn</button> -->
+</div>
+
+  <!-- Here all the child view will be rendered -->
+ <router-outlet></router-outlet>
+
+
+
+ <div id="id01" class="modal">
+  
+  <form class="modal-content animate" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/assets/images/avatar.png" height="50px" width="50px" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Email</b></label>
+      <input type="text" width="500px" [(ngModel)]="Email" #email="ngModel" name="UserEmail" placeholder="Enter Email" required>
+
+      <label><b>Phone</b></label>
+      <input type="text" [(ngModel)]="Phone" #phone="ngModel" name="UserPhone" placeholder="Enter Phone" required>
+        
+      <button type="submit">Login</button>
+      <!-- <input type="checkbox" checked="checked"> Remember me -->
+    </div>
+
+    <div class="container">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
